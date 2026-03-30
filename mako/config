@@ -1,0 +1,41 @@
+# ---------- GLOBAL SETTINGS ----------
+
+# Icons
+icon-path=/usr/share/icons/Papirus-Dark:/usr/share/icons/Papirus:/usr/share/icons/Adwaita:/usr/share/icons/hicolor:/usr/share/pixmaps
+
+# Placement and layer
+anchor=top-right
+layer=overlay
+
+markup=1
+# Title on its own line, then a tiny spacer line, then body
+format=<span weight="bold">%s</span>\n<span size="1000"> </span>\n%b
+
+# Colors and look
+background-color=#000000CC
+text-color=#EDEDEDFF
+border-color=#5AA2FFFF
+progress-color=#5AA2FFFF
+
+# Behavior
+default-timeout=5000
+max-visible=10
+
+# Urgency-specific tweaks
+[urgency=low]
+border-color=#A6E3A1FF
+
+[urgency=normal]
+border-color=#5AA2FFFF
+
+[urgency=critical]
+border-color=#F38BA8FF
+default-timeout=0
+
+[mode=default]
+font=Nerd Font 16
+width=340
+padding=14
+margin=8
+border-radius=8
+border-size=2
