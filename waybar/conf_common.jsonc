@@ -3,13 +3,14 @@
     "name": "main",
     "layer": "top",
     "position": "top",
-    "height": 36, 
+    "height": 40,
     "modules-left": [
         "custom/logo",
         "cpu",
         "temperature",
         "memory",
         "disk",
+        "disk#2"
     ],
     "modules-center": [
         "hyprland/workspaces"
@@ -25,10 +26,7 @@
         "battery",
         "clock"
     ],
-
-
     // LEFT
-
     "custom/logo": {
         "format": "󰣇",
         "tooltip": false,
@@ -41,9 +39,18 @@
     },
     "cpu": {
         "interval": 1,
-        "format": " {icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}{icon8}{icon9}{icon10}{icon11}{icon12}{icon13}{icon14}{icon15}{icon16}{icon17}{icon18}{icon19}",
-        "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
-        "on-click": "kitty -e htop --sort-key PERCENT_CPU",
+        "format": " {usage}% {icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}{icon8}{icon9}{icon10}{icon11}{icon12}{icon13}{icon14}{icon15}{icon16}{icon17}{icon18}{icon19}",
+        "format-icons": [
+            "▁",
+            "▂",
+            "▃",
+            "▄",
+            "▅",
+            "▆",
+            "▇",
+            "█"
+        ],
+        "on-click": "alacritty -e htop --sort-key PERCENT_CPU",
         "tooltip": false
     },
     "memory": {
@@ -52,7 +59,14 @@
         "tooltip-format": "Memory"
     },
     "disk": {
-        "interval": 1,
+        "path": "/",
+        "interval": 60,
+        "format": "󰋊 {specific_used:0.0f}G/{specific_total:0.0f}G",
+        "unit": "GiB"
+    },
+    "disk#2": {
+        "path": "/home",
+        "interval": 60,
         "format": "󰋊 {specific_used:0.0f}G/{specific_total:0.0f}G",
         "unit": "GiB"
     },
@@ -61,44 +75,52 @@
         "hwmon-path": "/sys/class/hwmon/hwmon6/temp1_input",
         "critical-threshold": 80,
         "format": "{icon} {temperatureC}°C",
-        "format-icons": ["", "", ""]
+        "format-icons": [
+            "",
+            "",
+            ""
+        ]
     },
-
-
     // CENTER
-
     "hyprland/workspaces": {
         "active-only": false,
         "all-outputs": true,
         "format": "{name}",
         "on-click": "activate"
     },
-
     // RIGHT
-
     "tray": {
         "icon-size": 15,
         "spacing": 5
     },
     "hyprland/language": {
-        "format": " {shortDescription} ",
+        "format": " {shortDescription} "
     },
     "backlight": {
         "format": "{icon} {percent}%",
-        "format-icons": ["󱩎", "󱩑", "󱩔", "󰛨"]
+        "format-icons": [
+            "󱩎",
+            "󱩑",
+            "󱩔",
+            "󰛨"
+        ]
     },
     "battery": {
         "states": {
             "good": 95,
             "warning": 20,
             "critical": 10
-
         },
         "format": "{icon} {capacity}%",
         "format-full": "{icon} {capacity}%",
         "format-charging": "󰂄 {capacity}%",
         "format-plugged": " {capacity}%",
-        "format-icons": ["󰂎", "󱊡", "󱊢", "󱊣"],
+        "format-icons": [
+            "󰂎",
+            "󱊡",
+            "󱊢",
+            "󱊣"
+        ],
         "interval": 1
     },
     "network": {
@@ -109,7 +131,7 @@
         "tooltip": true,
         "tooltip-format-wifi": "  {ifname} - {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\n {bandwidthUpBits}  {bandwidthDownBits}",
         "tooltip-format-ethernet": "  {ifname} - {ipaddr}\nIP: {ipaddr}\n {bandwidthUpBits}  {bandwidthDownBits}",
-        "on-click": "kitty -e impala",
+        "on-click": "alacritty -e impala",
         "interval": 1
     },
     "custom/vpn": {
@@ -121,8 +143,11 @@
     "wireplumber": {
         "format": "{icon} {volume}%",
         "format-muted": "  ",
-        "format-icons": ["", "", ""],
-        "tooltip": true,
+        "format-icons": [
+            "",
+            "",
+            ""
+        ],
         "scrollstep": 1.0,
         "max-volume": 100.0,
         "tooltip": "Source: {node_name}\n{format_source}"
@@ -135,7 +160,7 @@
         "tooltip-format-connected": "{controller_alias}\t{controller_address}\n{num_connections} connected\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
         "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
-        "on-click": "kitty -e 'bluetui'"
+        "on-click": "alacritty -e 'bluetui'"
     },
     "clock": {
         "interval": 1,
@@ -154,6 +179,5 @@
                 "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
             }
         }
-    },
+    }
 }
-

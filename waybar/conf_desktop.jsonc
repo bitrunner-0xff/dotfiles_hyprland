@@ -1,4 +1,6 @@
 {
-    "output": ["DP-1"],
+    "output": [
+        "HDMI-A-1"
+    ],
     "include": "$HOME/.config/waybar/conf_common.jsonc"
 }
