@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-EXTERNAL="/run/media/veracrypt1"
-#EXTERNAL="/mnt/veracrypt"
+EXTERNAL="/mnt/veracrypt"
 LOCAL="$HOME"
 
 if [ -d "$EXTERNAL" ] && [ -w "$EXTERNAL" ]; then
