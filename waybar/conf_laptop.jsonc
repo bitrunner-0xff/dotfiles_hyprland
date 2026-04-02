@@ -1,0 +1,30 @@
+[
+    {
+        "output": [
+            "eDP-1"
+        ],
+        "include": "$HOME/.config/waybar/conf_common.jsonc"
+    },
+    {
+        "name": "second",
+        "output": [
+            "!eDP-1",
+            "*"
+        ],
+        "layer": "top",
+        "position": "top",
+        "modules-left": [
+            "hyprland/workspaces"
+        ],
+        "modules-center": [],
+        "modules-right": [
+            "clock"
+        ],
+        "hyprland/workspaces": {
+            "active-only": false,
+            "all-outputs": true,
+            "format": "{name}",
+            "on-click": "activate"
+        }
+    }
+]

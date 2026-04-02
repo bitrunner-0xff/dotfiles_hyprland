@@ -1,4 +1,4 @@
-/* --- Global --- */
+/* ==== Global ==== */
 
 @define-color fg #c6d0f5;
 @define-color bg #1a1b26;
@@ -70,25 +70,24 @@ tooltip {
 #memory,
 #temperature {
     margin-right: 4px;
+    margin-left: 0;
 }
 
 
 #custom-logo {
     font-size: 1.3rem;
 
-    margin: 5px 5px;
+    margin-left: 5px;
 
     padding-left: 0.6rem;
     padding-right: 0.9rem;
 }
 
 #disk {
-    margin-right: 0;
     border-radius: 0.6rem 0 0 0.6rem ;
 }
 
 #disk.2 {
-    margin-left: 0;
     border-radius:  0 0.6rem 0.6rem 0;
 }
 
@@ -155,6 +154,8 @@ tooltip {
 
 #clock {
     color: @cyan;
+
+    margin-right: 4px;
 
     border-radius: 0.6rem;
     box-shadow: 0 1px 3px rgba(153, 209, 219, 0.2);
