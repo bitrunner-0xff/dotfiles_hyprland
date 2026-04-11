@@ -44,11 +44,14 @@ fi
 
 alias ll='ls -Alh --color=auto'
 alias grep='grep --colour=auto'
-alias ip='ip -c'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias diff='diff --color=auto'
+alias ip='ip --color=auto'
+
 alias mpv_hdr='mpv --vo=gpu-next --target-colorspace-hint --gpu-api=vulkan --gpu-context=waylandvk'
 alias v='vim'
 alias vv='nvim'
-alias yy='yazi'
 
 # Tree
 alias tree="tree -L 3 -a -I '.git' --charset X "
@@ -82,6 +85,20 @@ export PASSWORD_STORE_EXTENSIONS_DIR=$XDG_DATA_HOME/password-store/.extensions
 # Ranger
 export RANGER_LOAD_DEFAULT_RC=FALSE
 
+# Fix ls color for folders with 777 permissions
+export LS_COLORS="$LS_COLORS:ow=30;44:"
+
+
+# ===== Yazi =====
+
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	command yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
+
 
 # ===== Plugins =====
 
@@ -105,6 +122,7 @@ autoload bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
 zstyle ':completion:*' menu select
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle :compinstall filename '/home/glen/.zshrc'
 
 complete -C '/usr/local/bin/aws_completer' aws # AWS

@@ -84,6 +84,7 @@ tooltip {
 }
 
 #disk {
+    margin-right: 0;
     border-radius: 0.6rem 0 0 0.6rem ;
 }
 
@@ -150,23 +151,16 @@ tooltip {
 }
 
 
-/* CLOCK */
+/* TRAY */
 
-#clock {
-    color: @cyan;
-
-    margin-right: 4px;
-
+#tray {
     border-radius: 0.6rem;
-    box-shadow: 0 1px 3px rgba(153, 209, 219, 0.2);
 }
 
 
 /* LANGUAGE */
 
 #language {
-    margin-left: 0;
-
     border-top-left-radius: 0.6rem;
     border-bottom-left-radius: 0.6rem;
 }
@@ -241,9 +235,16 @@ tooltip {
 /* BACKLIGHT */
 
 #backlight {
-    margin-right: 0px;
-    border-top-left-radius: 0.6rem;
-    border-bottom-left-radius: 0.6rem;
+    border-radius: 0.6rem;
+    /* border-top-left-radius: 0.6rem; */
+    /* border-bottom-left-radius: 0.6rem; */
+}
+
+
+/* SOUND */
+
+#wireplumber {
+    border-radius: 0.6rem;
 }
 
 
@@ -252,11 +253,10 @@ tooltip {
 #battery {
     color: @blue;
 
-    border-top-right-radius: 0.6rem;
-    border-bottom-right-radius: 0.6rem;
+    border-radius: 0.6rem;
 
-    margin-right: 7px;
-    margin-left: 0px;
+    /* border-top-right-radius: 0.6rem; */
+    /* border-bottom-right-radius: 0.6rem; */
 }
 
 #battery.charging {
@@ -269,3 +269,15 @@ tooltip {
     color: @red;
 }
 
+
+
+/* CLOCK */
+
+#clock {
+    color: @cyan;
+
+    margin-right: 4px;
+
+    border-radius: 0.6rem;
+    box-shadow: 0 1px 3px rgba(153, 209, 219, 0.2);
+}

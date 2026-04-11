@@ -127,7 +127,7 @@
         "format-wifi": " ",
         "format-ethernet": "  {ipaddr}/{cidr}",
         "format-linked": "  {ifname} (No IP)",
-        "format-disconnected": "",
+        "format-disconnected": " ",
         "tooltip": true,
         "tooltip-format-wifi": "  {ifname} - {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\n {bandwidthUpBits}  {bandwidthDownBits}",
         "tooltip-format-ethernet": "  {ifname} - {ipaddr}\nIP: {ipaddr}\n {bandwidthUpBits}  {bandwidthDownBits}",
