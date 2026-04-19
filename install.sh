@@ -21,6 +21,9 @@ ln -sfn ~/.config/dotfiles_hyprland/waybar ~/.config/waybar
 # Launcher
 ln -sfn ~/.config/dotfiles_hyprland/wofi ~/.config/wofi
 
+# Break reminder
+ln -sfn ~/.config/dotfiles_hyprland/hypr-breaktimer ~/.config/hypr-breaktimer
+
 # Zsh
 ln -sfn ~/.config/dotfiles_hyprland/.zshrc ~/.zshrc
 git clone https://github.com/zsh-users/zsh-completions.git ~/.zsh/zsh-completions
