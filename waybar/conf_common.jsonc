@@ -3,17 +3,17 @@
     "name": "main",
     "layer": "top",
     "position": "top",
-    "height": 40,
+    "height": 30,
     "modules-left": [
         "custom/logo",
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
         "cpu",
         "temperature",
         "memory",
         "disk",
         "disk#2"
-    ],
-    "modules-center": [
-        "hyprland/workspaces"
     ],
     "modules-right": [
         "tray",
@@ -21,9 +21,7 @@
         "bluetooth",
         "custom/vpn",
         "network",
-        "backlight",
         "wireplumber",
-        "battery",
         "clock"
     ],
     // LEFT
@@ -37,6 +35,13 @@
             "reboot": "systemctl reboot"
         }
     },
+    "hyprland/workspaces": {
+        "active-only": false,
+        "all-outputs": true,
+        "format": "{name}",
+        "on-click": "activate"
+    },
+    // CENTER
     "cpu": {
         "interval": 1,
         "format": " {usage}% {icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}{icon8}{icon9}{icon10}{icon11}{icon12}{icon13}{icon14}{icon15}{icon16}{icon17}{icon18}{icon19}",
@@ -81,13 +86,6 @@
             ""
         ]
     },
-    // CENTER
-    "hyprland/workspaces": {
-        "active-only": false,
-        "all-outputs": true,
-        "format": "{name}",
-        "on-click": "activate"
-    },
     // RIGHT
     "tray": {
         "icon-size": 15,
@@ -95,33 +93,6 @@
     },
     "hyprland/language": {
         "format": " {shortDescription} "
-    },
-    "backlight": {
-        "format": "{icon} {percent}%",
-        "format-icons": [
-            "󱩎",
-            "󱩑",
-            "󱩔",
-            "󰛨"
-        ]
-    },
-    "battery": {
-        "states": {
-            "good": 95,
-            "warning": 20,
-            "critical": 10
-        },
-        "format": "{icon} {capacity}%",
-        "format-full": "{icon} {capacity}%",
-        "format-charging": "󰂄 {capacity}%",
-        "format-plugged": " {capacity}%",
-        "format-icons": [
-            "󰂎",
-            "󱊡",
-            "󱊢",
-            "󱊣"
-        ],
-        "interval": 1
     },
     "network": {
         "format-wifi": " ",
@@ -131,7 +102,7 @@
         "tooltip": true,
         "tooltip-format-wifi": "  {ifname} - {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\n {bandwidthUpBits}  {bandwidthDownBits}",
         "tooltip-format-ethernet": "  {ifname} - {ipaddr}\nIP: {ipaddr}\n {bandwidthUpBits}  {bandwidthDownBits}",
-        "on-click": "alacritty -e impala",
+        "on-click": "alacritty --class wifi -T wifi -e impala",
         "interval": 1
     },
     "custom/vpn": {
@@ -160,7 +131,7 @@
         "tooltip-format-connected": "{controller_alias}\t{controller_address}\n{num_connections} connected\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
         "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
-        "on-click": "alacritty -e 'bluetui'"
+        "on-click": "alacritty --class bluetooth -T bluetooth -e 'bluetui'"
     },
     "clock": {
         "interval": 1,
