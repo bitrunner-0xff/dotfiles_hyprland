@@ -1,0 +1,4 @@
+export HYPRCURSOR_SIZE="24"
+export HYPRCURSOR_THEME="Bibata"
+
+export AQ_NO_ATOMIC="0"

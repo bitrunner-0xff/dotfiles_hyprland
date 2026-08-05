@@ -1,0 +1,44 @@
+{
+    "include": "$HOME/.config/waybar/conf_common.jsonc",
+    "name": "main",
+    "layer": "top",
+    "position": "top",
+    "modules-right": [
+        "tray",
+        "hyprland/language",
+        "bluetooth",
+        "custom/vpn",
+        "network",
+        "wireplumber",
+        "backlight",
+        "battery",
+        "clock"
+    ],
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 20,
+            "critical": 10
+        },
+        "format": "{icon} {capacity}%",
+        "format-full": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-icons": [
+            "󰂎",
+            "󱊡",
+            "󱊢",
+            "󱊣"
+        ],
+        "interval": 1
+    },
+    "backlight": {
+        "format": "{icon} {percent}%",
+        "format-icons": [
+            "󱩎",
+            "󱩑",
+            "󱩔",
+            "󰛨"
+        ]
+    }
+}

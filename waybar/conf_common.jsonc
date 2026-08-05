@@ -1,0 +1,162 @@
+// MAIN MONITOR
+{
+    "name": "main",
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "modules-left": [
+        "custom/logo",
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        "cpu",
+        "temperature",
+        "memory",
+        "disk",
+        "disk#2"
+    ],
+    "modules-right": [
+        "tray",
+        "hyprland/language",
+        "bluetooth",
+        "custom/vpn",
+        "network",
+        "wireplumber",
+        "clock"
+    ],
+    // LEFT
+    "custom/logo": {
+        "format": "󰣇",
+        "tooltip": false,
+        "menu": "on-click",
+        "menu-file": "~/.config/waybar/power_menu.xml",
+        "menu-actions": {
+            "shutdown": "systemctl poweroff",
+            "reboot": "systemctl reboot"
+        }
+    },
+    "hyprland/workspaces": {
+        "active-only": false,
+        "hide-active": false,
+        "all-outputs": true,
+        "persistent-only": false,
+        "show-special": true,
+        "special-visible-only": false,
+        "move-to-monitor": false,
+        "format": "{name}",
+        //        "on-click": "activate",
+        "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e+1\" })'",
+        "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e-1\" })'"
+    },
+    // CENTER
+    "cpu": {
+        "interval": 1,
+        "format": " {usage}% {icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}{icon8}{icon9}{icon10}{icon11}{icon12}{icon13}{icon14}{icon15}",
+        "format-icons": [
+            "▁",
+            "▂",
+            "▃",
+            "▄",
+            "▅",
+            "▆",
+            "▇",
+            "█"
+        ],
+        "on-click": "alacritty -e htop --sort-key PERCENT_CPU",
+        "tooltip": false
+    },
+    "memory": {
+        "interval": 1,
+        "format": " {used:0.1f}G/{total:0.1f}G",
+        "tooltip-format": "Memory"
+    },
+    "disk": {
+        "path": "/",
+        "interval": 60,
+        "format": "󰋊 {specific_used:0.0f}G/{specific_total:0.0f}G",
+        "unit": "GiB"
+    },
+    "disk#2": {
+        "path": "/home",
+        "interval": 60,
+        "format": "󰋊 {specific_used:0.0f}G/{specific_total:0.0f}G",
+        "unit": "GiB"
+    },
+    "temperature": {
+        "interval": 1,
+        "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon5/temp1_input",
+        "critical-threshold": 80,
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": [
+            "",
+            "",
+            ""
+        ]
+    },
+    // RIGHT
+    "tray": {
+        "icon-size": 15,
+        "spacing": 5
+    },
+    "hyprland/language": {
+        "format": " {shortDescription} "
+    },
+    "network": {
+        "format-wifi": " ",
+        "format-ethernet": "  {ipaddr}/{cidr}",
+        "format-linked": "  {ifname} (No IP)",
+        "format-disconnected": " ",
+        "tooltip": true,
+        "tooltip-format-wifi": "  {ifname} - {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\n {bandwidthUpBits}  {bandwidthDownBits}",
+        "tooltip-format-ethernet": "  {ifname} - {ipaddr}\nIP: {ipaddr}\n {bandwidthUpBits}  {bandwidthDownBits}",
+        "on-click": "alacritty --class wifi -T wifi -e impala",
+        "interval": 1
+    },
+    "custom/vpn": {
+        "interval": 1,
+        "exec": "~/.config/waybar/vpn_status.sh",
+        "return-type": "json",
+        "format": "{} "
+    },
+    "wireplumber": {
+        "format": "{icon} {volume}%",
+        "format-muted": "  ",
+        "format-icons": [
+            "",
+            "",
+            ""
+        ],
+        "scrollstep": 1.0,
+        "max-volume": 100.0,
+        "tooltip": true,
+        "tooltip-format": "Source: {node_name}\n{format_source}"
+    },
+    "bluetooth": {
+        "format": "󰂯",
+        "format-disabled": "󰂲",
+        "format-connected": "󰂯",
+        "tooltip-format": "{controller_alias}\t{controller_address}\n{num_connections} dev",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n{num_connections} connected\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+        "on-click": "alacritty --class bluetooth -T bluetooth -e 'bluetui'"
+    },
+    "clock": {
+        "interval": 1,
+        "format": " {:%H:%M:%S}",
+        "tooltip-format": "<tt><small><span size='12pt'>{calendar}</span></small></tt>",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "weeks-pos": "left",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        }
+    }
+}

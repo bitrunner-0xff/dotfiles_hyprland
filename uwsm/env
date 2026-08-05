@@ -1,0 +1,28 @@
+export XCURSOR_SIZE="24"
+export XCURSOR_THEME="Bibata-Original-Classic"
+export XCURSOR_PATH="$HOME/.local/share/icons:/usr/share/icons"
+
+export GDK_SCALE="1"
+export GTK_THEME="Breeze-Dark"
+export GDK_BACKEND="wayland,x11,*"
+
+export QT_AUTO_SCREEN_SCALE_FACTOR="1"
+export QT_QPA_PLATFORM="wayland;xcb"
+export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
+export QT_QPA_PLATFORMTHEME="qt5ct"
+
+export XDG_CURRENT_DESKTOP="Hyprland"
+export XDG_SESSION_TYPE="wayland"
+export XDG_SESSION_DESKTOP="Hyprland"
+
+export GBM_BACKEND="nvidia-drm"
+export LIBVA_DRIVER_NAME="nvidia"
+export __GLX_VENDOR_LIBRARY_NAME="nvidia"
+export __GL_GSYNC_ALLOWED="1"
+export __GL_VRR_ALLOWED="0"
+
+export CLUTTER_BACKEND="wayland"
+export ELECTRON_OZONE_PLATFORM_HINT="auto"
+export NVD_BACKEND="direct"
+
+export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=lcd -Dswing.aatext=true"
