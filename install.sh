@@ -73,6 +73,7 @@ ln -sfn "$DOTFILES_DIR/scripts/"* "$HOME/.local/bin"
 echo "Configuring Hyprland for $HYPRLAND_TYPE mode..."
 
 echo "Creating symlinks for UWSM"
+mkdir -p "$HOME/.config/uwsm"
 ln -sfn "$DOTFILES_DIR/uwsm/env" "$HOME/.config/uwsm/env"
 ln -sfn "$DOTFILES_DIR/uwsm/env-hyprland" "$HOME/.config/uwsm/env-hyprland"
 
