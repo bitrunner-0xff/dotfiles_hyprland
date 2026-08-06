@@ -101,6 +101,24 @@ ln -sfn "$DOTFILES_DIR/dunst" "$HOME/.config/dunst"
 
 # TOP BAR
 echo "Installing Waybar config..."
+WAYBAR_STYLE="$DOTFILES_DIR/waybar/style.css"
+if [[ "$HYPRLAND_TYPE" == "desktop" ]]; then
+    echo "Switching to Desktop mode"
+
+    # Uncomment border-radius inside #wireplumber
+    sed -i '/^#wireplumber[[:space:]]*{/,/^}/ {
+        s|^[[:space:]]*/\*[[:space:]]*border-radius:[[:space:]]*0\.6rem;[[:space:]]*\*/|    border-radius: 0.6rem;|
+    }' "$WAYBAR_STYLE"
+
+elif [[ "$HYPRLAND_TYPE" == "laptop" ]]; then
+    echo "Switching to Laptop mode"
+
+    # Comment border-radius inside #wireplumber if currently uncommented
+    sed -i '/^#wireplumber[[:space:]]*{/,/^}/ {
+        s|^[[:space:]]*border-radius:[[:space:]]*0\.6rem;[[:space:]]*$|    /* border-radius: 0.6rem; */|
+    }' "$WAYBAR_STYLE"
+fi
+
 ln -sfn "$DOTFILES_DIR/waybar" "$HOME/.config/waybar"
 
 # APP LAUNCHER

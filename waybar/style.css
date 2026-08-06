@@ -166,22 +166,6 @@ tooltip {
 }
 
 
-/* VPN */
-
-#custom-vpn {
-    padding-left: 0.9rem;
-    margin-left: 0;
-}
-
-#custom-vpn.vpn-on {
-    color: @green;
-}
-
-#custom-vpn.vpn-off {
-    color: @red;
-}
-
-
 /* BLUETOOTH */
 
 #bluetooth {
@@ -199,6 +183,22 @@ tooltip {
 
 #bluetooth.connected {
     color: @green;
+}
+
+
+/* VPN */
+
+#custom-vpn {
+    padding-left: 0.9rem;
+    margin-left: 0;
+}
+
+#custom-vpn.vpn-on {
+    color: @green;
+}
+
+#custom-vpn.vpn-off {
+    color: @red;
 }
 
 
@@ -232,19 +232,21 @@ tooltip {
 }
 
 
-/* BACKLIGHT */
-
-#backlight {
-    border-radius: 0.6rem;
-    /* border-top-left-radius: 0.6rem; */
-    /* border-bottom-left-radius: 0.6rem; */
-}
-
-
 /* SOUND */
 
 #wireplumber {
-    border-radius: 0.6rem;
+    /* border-radius: 0.6rem; */
+
+    border-top-left-radius: 0.6rem;
+    border-bottom-left-radius: 0.6rem;
+
+}
+
+
+/* BACKLIGHT */
+
+#backlight {
+    margin-left: 0;
 }
 
 
@@ -253,10 +255,10 @@ tooltip {
 #battery {
     color: @blue;
 
-    border-radius: 0.6rem;
+    margin-left: 0;
 
-    /* border-top-right-radius: 0.6rem; */
-    /* border-bottom-right-radius: 0.6rem; */
+    border-top-right-radius: 0.6rem;
+    border-bottom-right-radius: 0.6rem;
 }
 
 #battery.charging {
