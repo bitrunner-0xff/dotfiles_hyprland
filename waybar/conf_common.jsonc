@@ -144,18 +144,18 @@
     "clock": {
         "interval": 1,
         "format": " {:%H:%M:%S}",
-        "tooltip-format": "<tt><small><span size='12pt'>{calendar}</span></small></tt>",
+        "tooltip-format": "<tt><span size='11pt'>{calendar}</span></tt>",
         "calendar": {
             "mode": "month",
             "mode-mon-col": 3,
             "weeks-pos": "left",
             "on-scroll": 1,
             "format": {
-                "months": "<span color='#ffead3'><b>{}</b></span>",
-                "days": "<span color='#ecc6d9'><b>{}</b></span>",
-                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
-                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-                "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+                "months": "<span color='#ad8ee6' weight='bold'>{}</span>",
+                "days": "<span color='#c6d0f5'>{}</span>",
+                "weeks": "<span color='#787c99'>W{}</span>",
+                "weekdays": "<span color='#7dcfff' weight='bold'>{}</span>",
+                "today": "<span color='#1a1b26' background='#7aa2f7' weight='bold'> {} </span>"
             }
         }
     }
