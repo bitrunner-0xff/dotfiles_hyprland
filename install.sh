@@ -74,8 +74,7 @@ echo "Configuring Hyprland for $HYPRLAND_TYPE mode..."
 
 echo "Creating symlinks for UWSM"
 mkdir -p "$HOME/.config/uwsm"
-ln -sfn "$DOTFILES_DIR/uwsm/env" "$HOME/.config/uwsm/env"
-ln -sfn "$DOTFILES_DIR/uwsm/env-hyprland" "$HOME/.config/uwsm/env-hyprland"
+ln -sfn "$DOTFILES_DIR/uwsm/"* "$HOME/.config/uwsm"
 
 # Update the main hyprland.lua file based on config type
 HYPRLAND_CONFIG="$DOTFILES_DIR/hypr/hyprland.lua"
